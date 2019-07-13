@@ -3,6 +3,8 @@ class RhetoricsController < ApplicationController
   include RhetoricsHelper
 
   def index
+    # @q = Rhetoric.ransack(params[:q])
+    # @rhetorics = @q.result.includes(:rhetorics)
     @rhetorics = Rhetoric.all.order("created_at DESC").search(params[:search])
   end
 
@@ -52,6 +54,11 @@ class RhetoricsController < ApplicationController
     send_data @rhetoric.image, type: @rhetoric.ctype, disposition: 'inline'
   end
 
+  # def search
+  #   @q = Rhetoric.search(search_params)
+  #   @rhetorics = @q.result.includes(:rhetorics)
+  # end
+
     private
 
 
@@ -70,5 +77,8 @@ class RhetoricsController < ApplicationController
     @rhetoric.ctype = rhetoric_image.mime_type
   end
 
+  # def search_params
+  #   params.require(:q).permit(:meigen_cont)
+  # end
 
 end

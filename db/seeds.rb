@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+250.times do |i|
+  Rhetoric.create!(
+      meigen:    "名言#{i}",
+      description: "詳細#{i}"
+
+  )
+end

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  get 'search', to: 'rhetorics#search'
+
   get 'comments/create'
   get 'comments/destroy'
 

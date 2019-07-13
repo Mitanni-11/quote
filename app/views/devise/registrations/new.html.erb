@@ -2,20 +2,42 @@
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
+    <div class="form-body">
+      <div class="form-inputs">
+        <div class="form-inputs-text">
+        <%= f.input :username, 
+                    autofocus: true,  
+                    :placeholder => "ユーザー名",
+                    label: false %>
+        <%= f.input :email,
+                    required: true,
+                    :placeholder => "メールアドレス",
+                    label: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    :placeholder => "パスワード（6文字以上）",
+                    label: false,
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    :placeholder => "確認用パスワード",
+                    label: false,
+                    input_html: { autocomplete: "new-password" } %>
+        </div>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :username, autofocus: true %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+
+      <div class="form-actions">
+        <%= f.button :submit, "アカウントを作成する" %>
+      </div>
+
+      <% end %>
+      <div class="signin-with-twitter">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">

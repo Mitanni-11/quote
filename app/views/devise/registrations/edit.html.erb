@@ -4,8 +4,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :username,autofocus: true %>
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :username,
+                autofocus: true,
+                :placeholder => "ユーザー名",
+                label: false %>
+    <%= f.input :email, 
+                required: true, 
+                :placeholder => "メールアドレス",
+                label: false,
+                autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
@@ -14,13 +21,19 @@
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
+                :placeholder => "パスワード",
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
+                :placeholder => "確認用パスワード",
+                label: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
+                :placeholder => "現在のパスワード",
+                label: false,
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
@@ -30,7 +43,7 @@
 
 
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.button :submit, "保存する" %>
   </div>
 <% end %>
 

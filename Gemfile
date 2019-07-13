@@ -12,9 +12,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-gem 'mini_magick'
+gem 'mini_magick' #文字列から画像を生成する際に使用
 gem 'simple_form'
-gem 'devise'
+gem 'devise' #認証
 gem 'omniauth'
 gem 'omniauth-twitter' #Twitter認証
 gem 'counter_culture', '~> 1.8'
@@ -22,6 +22,9 @@ gem 'acts-as-taggable-on', '~> 6.0' #タグ付け
 gem 'carrierwave' #画像アップロード
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'kaminari' #ページネーション
+gem 'ransack' #検索
+
 
 
 group :development, :test do
