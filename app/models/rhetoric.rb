@@ -1,5 +1,6 @@
 class Rhetoric < ApplicationRecord
   belongs_to :user
+  belongs_to :speaker
   validates :user_id, presence: true
   has_one :source
   has_one :speaker
@@ -7,6 +8,7 @@ class Rhetoric < ApplicationRecord
   has_many :pick_users, through: :picks, source: :user
   has_many :comments,dependent: :destroy
   # has_many :rhetoric_speakers,dependent: :destroy
+
   acts_as_taggable
   acts_as_taggable_on :speakers
 

@@ -21,7 +21,10 @@ class RhetoricsController < ApplicationController
   def create
     @rhetoric = current_user.rhetorics.build(rhetoric_params)
     prepare_rhetoric_image
+    speaker_list = params[:speaker_name].split(",")
+    debugger
     if @rhetoric.save
+      @rhetoric.save_speakers(speaker_list)
       flash[:success] = "rhetoricが作成されました！"
       redirect_to @rhetoric
     else
@@ -57,6 +60,7 @@ class RhetoricsController < ApplicationController
   # end
 
     private
+
 
   def rhetoric_params
     params.require(:rhetoric).permit(:title, :description, :meigen, :tag_list, :speaker_list )
