@@ -20,18 +20,14 @@
       <div class="header-search">
         <div class="search-icon">
         </div>
+
         <div class="search-input">
-
-          <%#= search_form_for(@q, url:search_path) do |f| %>
-            <%#= f.search_field :meigen_cont, placeholder: '検索' %>
-            <%#= f.submit '検索' %>
-            <%# end %>
-
-          <%= form_tag(rhetorics_path, :method => 'get',) do %>
-            <%= text_field_tag :search, params[:search], placeholder: '検索' %>
-            <%= submit_tag "検索" , :name => nil %>
-           <% end %>
+          <%= search_form_for @q do |f| %>
+            <%= f.search_field :meigen_or_tags_name_or_speakers_name_cont, placeholder: '検索' %>
+            <%= f.submit '検索' %>
+            <% end %>
         </div>
+
       </div>
     <% end %>
     <ul class="header-right">
